@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import placeholder from '../assets/placeholders/image.jpg';
+export interface Props {
+	meal: {
+		name: string;
+		slug: string;
+	};
+}
+
+const { meal } = Astro.props;
+---
+
+<div class='card'>
+	<div class='card-img-top'>
+		<Image
+			src={placeholder}
+			alt='placeholder'
+			class={'img-fluid rounded-top'}
+		/>
+	</div>
+	<div class='card-body'>
+		<h5 class='card-title'>{meal.name}</h5>
+		<p class='card-text'>Calories: 500 kcal</p>
+		<p class='card-text'>Prep Time: 30 mins</p>
+		<p class='card-text'>Servings: 2</p>
+		<a
+			href={`/recipes/${meal.slug}`}
+			class='btn btn-secondary stretched-link'
+			>View Recipe</a
+		>
+	</div>
+</div>

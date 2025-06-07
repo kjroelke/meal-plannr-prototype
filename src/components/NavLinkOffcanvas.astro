@@ -1,0 +1,50 @@
+---
+import { BASE_URL } from '../consts';
+
+export interface Props {
+	href: string;
+	text: string;
+	items: Array<{
+		href: string;
+		text: string;
+	}>;
+}
+const { href, text, items, ...props } = Astro.props as Props;
+const { pathname } = Astro.url;
+const subpath = pathname.match(/[^\/]+/g);
+const isActive = href === pathname || href === '/' + subpath?.[0];
+---
+
+<button
+	class='navbar-toggler'
+	type='button'
+	data-bs-toggle='offcanvas'
+	data-bs-target='#navbarSupportedContent'
+	aria-controls='navbarSupportedContent'
+	aria-expanded='false'
+	aria-label='Toggle navigation'
+>
+	{text}
+</button>
+<div
+	class='offcanvas offcanvas-bottom justify-content-end'
+	tabindex='-1'
+	id='navbarSupportedContent'
+>
+	<div class='offcanvas-body align-self-md-end'>
+		<ul class='navbar-nav align-items-md-center gap-3'>
+			{
+				items.map(({ href, text }) => (
+					<li>
+						<a
+							href={`${BASE_URL}/${href}`}
+							class:list={[{ active: isActive }]}
+						>
+							{text}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</div>

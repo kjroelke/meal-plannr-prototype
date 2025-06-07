@@ -9,14 +9,14 @@
 * Also, you can add custom colors with the sass `map` below
 */
 
-$primary: #121150;
-$secondary: #6c757d;
+$primary: #dd9831;
+$secondary: #a8ea81;
 $success: #99ddec;
-$light: #eff0fe;
-$dark: #01010e;
+$light: #fefdfa;
+$dark: #130d03;
 
 $custom-colors: (
-	"accent": #f4ad86,
+	"accent": #5de45e,
 );
 
 // ================================================
@@ -164,21 +164,21 @@ $theme-colors: map.merge($theme-colors, $custom-colors);
 @import "bootstrap/scss/offcanvas";
 @import "bootstrap/scss/dropdown";
 @import "bootstrap/scss/type";
-// @import "bootstrap/scss/images";
-// @import "bootstrap/scss/tables";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/tables";
 // @import "bootstrap/scss/forms";
 // @import "bootstrap/scss/button-group";
 @import "bootstrap/scss/nav";
 @import "bootstrap/scss/navbar"; // Requires nav
-// @import "bootstrap/scss/card";
-// @import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/breadcrumb";
 // @import "bootstrap/scss/accordion";
 // @import "bootstrap/scss/pagination";
 // @import "bootstrap/scss/badge";
 // @import "bootstrap/scss/alert";
 // @import "bootstrap/scss/progress";
 // @import "bootstrap/scss/list-group";
-// @import "bootstrap/scss/toasts";
+@import "bootstrap/scss/toasts";
 @import "bootstrap/scss/modal"; // Requires transitions
 // @import "bootstrap/scss/tooltip";
 // @import "bootstrap/scss/popover";

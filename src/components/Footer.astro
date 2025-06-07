@@ -1,11 +1,67 @@
 ---
-const today = new Date();
+import NavLink from './NavLink.astro';
+import NavLinkOffcanvas from './NavLinkOffcanvas.astro';
+const navLinks = [
+	{
+		href: '/',
+		text: 'Home',
+	},
+	{
+		href: 'recipes',
+		text: 'Recipes',
+	},
+	{
+		href: '#',
+		text: '+',
+		items: [
+			{
+				href: '#',
+				text: 'Action 1',
+			},
+			{
+				href: '#',
+				text: 'Action 2',
+			},
+		],
+	},
+	{
+		href: 'plans',
+		text: 'Meal Plans',
+	},
+	{
+		href: 'settings',
+		text: 'Settings',
+	},
+];
 ---
 
-<footer class='container-fluid p-5 text-gray'>
-	<div class='row'>
-		<div class='col text-center d-flex flex-column justify-content-center'>
-			&copy; {today.getFullYear()} All rights reserved.
-		</div>
-	</div>
+<footer class='container-fluid'>
+	<nav class='navbar py-3'>
+		<ul
+			class='navbar-nav flex-row justify-content-between gap-3 flex-grow-1'
+		>
+			{
+				navLinks.map((link) => {
+					return link.items ? (
+						<li>
+							<NavLinkOffcanvas
+								href={link.href}
+								text={link.text}
+								items={link.items}
+							/>
+						</li>
+					) : (
+						<li>
+							<NavLink
+								href={link.href}
+								class='nav-link'
+							>
+								{link.text}
+							</NavLink>
+						</li>
+					);
+				})
+			}
+		</ul>
+	</nav>
 </footer>
