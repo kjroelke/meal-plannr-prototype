@@ -9,7 +9,7 @@ import MealPreview from '../components/MealPreview.astro';
 	const hour = now.getHours();
 	const meal = hour < 15 ? 'lunch' : 'dinner';
 	window.addEventListener('DOMContentLoaded', () => {
-		document.getElementById('current-meal').textContent = meal;
+		document.getElementById('current-meal')!.textContent = meal;
 	});
 </script>
 <BaseLayout>
