@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import placeholder from '../assets/placeholders/image.jpg';
+import { BASE_URL } from '../consts';
 export interface Props {
 	meal: {
 		name: string;
@@ -23,7 +24,7 @@ const { meal } = Astro.props;
 		<p class='card-text'>Prep Time: 30 mins</p>
 		<p class='card-text'>Servings: 2</p>
 		<a
-			href={`/recipes/${meal.slug}`}
+			href={`${BASE_URL}/recipes/${meal.slug}`}
 			class='btn btn-secondary stretched-link'
 			>View Recipe</a
 		>

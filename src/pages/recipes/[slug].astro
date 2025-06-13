@@ -1,0 +1,48 @@
+---
+import { BASE_URL } from '../../consts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+	const posts = await getCollection('recipes');
+	return posts.map((post) => {
+		return {
+			params: { slug: post.id },
+			props: { post },
+		};
+	});
+}
+// 2. For your template, you can get the entry directly from the prop
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title='Recipes'>
+	<div class='container'>
+		<div class='row justify-content-center'>
+			<div class='col-lg-8'>
+				<nav aria-label='breadcrumb'>
+					<ol class='breadcrumb'>
+						<li class='breadcrumb-item'>
+							<a href={`${BASE_URL}/recipes`}>Recipes</a>
+						</li>
+						<li
+							class='breadcrumb-item active'
+							aria-current='page'
+						>
+							{post.data.title}
+						</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<main class='container mb-5'>
+		<div class='row justify-content-center'>
+			<div class='col-lg-8'>
+				<h1>{post.data.title}</h1>
+				<Content />
+			</div>
+		</div>
+	</main>
+</BaseLayout>
