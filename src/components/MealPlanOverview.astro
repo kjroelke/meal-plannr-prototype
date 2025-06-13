@@ -1,22 +1,11 @@
 ---
 import MealPlanSwiper from './MealPlanSwiper.astro';
-
-const days = [
-	'Sunday',
-	'Monday',
-	'Tuesday',
-	'Wednesday',
-	'Thursday',
-	'Friday',
-	'Saturday',
-] as const;
-const today = days[new Date().getDay()];
 ---
 
 <div
 	class='my-5'
 	id='meal-plan-overview'
 >
-	<h2 class='display-2'>This Week's Meals</h2>
+	<h2 class='display-2 mb-0'>This Week's Meals</h2>
 	<MealPlanSwiper />
 </div>

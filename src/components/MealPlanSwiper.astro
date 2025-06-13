@@ -41,7 +41,7 @@ const today = days[new Date().getDay()];
 <div
 	class='swiper my-5 w-100'
 	id='meal-plan-swiper'
-	style='max-width: 600px;'
+	style='max-width: calc(100% - 10px);'
 >
 	<div class='swiper-wrapper align-items-stretch'>
 		{days.map((day) => <MealOfTheDayCard day={day} />)}
