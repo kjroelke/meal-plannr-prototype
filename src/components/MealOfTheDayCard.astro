@@ -1,0 +1,53 @@
+---
+import mealPlan from '../data/sampleMealPlan.json';
+export interface Props {
+	day:
+		| 'Sunday'
+		| 'Monday'
+		| 'Tuesday'
+		| 'Wednesday'
+		| 'Thursday'
+		| 'Friday'
+		| 'Saturday';
+}
+const { day } = Astro.props;
+
+const meals = mealPlan.findIndex((meal) => meal.day === day);
+if (meals < 0) {
+	return;
+}
+
+const { lunch, dinner } = mealPlan[meals] || { lunch: null, dinner: null };
+---
+
+<div class='swiper-slide border-1 rounded-3 bg-secondary-subtle py-5 px-3'>
+	<h3>{day}</h3>
+	<div class='lunch mb-4'>
+		<h4>Lunch</h4>
+		{
+			lunch?.kj === lunch?.sara ? (
+				(lunch?.kj ?? 'N/A')
+			) : (
+				<>
+					<strong>KJ:</strong> {lunch?.kj ?? 'N/A'}
+					<br />
+					<strong>Sara:</strong> {lunch?.sara ?? 'N/A'}
+				</>
+			)
+		}
+	</div>
+	<div class='dinner'>
+		<h4>Dinner</h4>
+		{
+			dinner?.kj === dinner?.sara ? (
+				(dinner?.kj ?? 'N/A')
+			) : (
+				<>
+					<strong>KJ:</strong> {dinner?.kj ?? 'N/A'}
+					<br />
+					<strong>Sara:</strong> {dinner?.sara ?? 'N/A'}
+				</>
+			)
+		}
+	</div>
+</div>

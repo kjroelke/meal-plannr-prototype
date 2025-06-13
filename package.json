@@ -15,6 +15,7 @@
 		"astro": "^5.8.1",
 		"bootstrap": "^5.3.6",
 		"sass": "^1.89.1",
+		"swiper": "^11.2.8",
 		"typescript": "^5.8.3"
 	},
 	"devDependencies": {
