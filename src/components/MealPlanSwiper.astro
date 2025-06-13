@@ -25,12 +25,17 @@ const today = days[new Date().getDay()];
 			enabled: true,
 			forceToAxis: true,
 		},
+		spaceBetween: 10,
 		a11y: {
 			enabled: true,
 			prevSlideMessage: 'Previous meal',
 			nextSlideMessage: 'Next meal',
 		},
-		loop: true,
+		cardsEffect: {
+			slideShadows: false,
+			perSlideRotate: 1,
+			perSlideOffset: 5,
+		},
 	});
 </script>
 <div
@@ -38,7 +43,7 @@ const today = days[new Date().getDay()];
 	id='meal-plan-swiper'
 	style='max-width: 600px;'
 >
-	<div class='swiper-wrapper'>
+	<div class='swiper-wrapper align-items-stretch'>
 		{days.map((day) => <MealOfTheDayCard day={day} />)}
 	</div>
 </div>
