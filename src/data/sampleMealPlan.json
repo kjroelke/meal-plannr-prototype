@@ -1,0 +1,79 @@
+[
+	{
+		"day": "Sunday",
+		"lunch": {
+			"sara": "leftover burgers",
+			"kj": "leftover burgers"
+		},
+		"dinner": {
+			"sara": "leftover skillet",
+			"kj": ""
+		}
+	},
+	{
+		"day": "Monday",
+		"lunch": {
+			"sara": "leftover burgers",
+			"kj": "leftover burgers"
+		},
+		"dinner": {
+			"sara": "Slow cooker tacos",
+			"kj": "Slow cooker tacos"
+		}
+	},
+	{
+		"day": "Tuesday",
+		"lunch": {
+			"sara": "Slow cooker tacos",
+			"kj": "Slow cooker tacos"
+		},
+		"dinner": {
+			"sara": "ground turkey skillet",
+			"kj": "ground turkey skillet"
+		}
+	},
+	{
+		"day": "Wednesday",
+		"lunch": {
+			"sara": "Slow cooker tacos/one extra ground turkey skillet for mom",
+			"kj": "Slow cooker tacos"
+		},
+		"dinner": {
+			"sara": "Ground turkey skillet",
+			"kj": "Ground turkey skillet"
+		}
+	},
+	{
+		"day": "Thursday",
+		"lunch": {
+			"sara": "Slow cooker tacos",
+			"kj": "Slow cooker tacos"
+		},
+		"dinner": {
+			"sara": "Grilled chicken w/ sweet potatoes and Brussels",
+			"kj": "Grilled chicken w/ sweet potatoes and Brussels"
+		}
+	},
+	{
+		"day": "Friday",
+		"lunch": {
+			"sara": "",
+			"kj": "Grilled chicken w/ sweet potatoes and Brussels"
+		},
+		"dinner": {
+			"sara": "",
+			"kj": ""
+		}
+	},
+	{
+		"day": "Saturday",
+		"lunch": {
+			"sara": "",
+			"kj": "Grilled chicken w/ sweet potatoes and Brussels"
+		},
+		"dinner": {
+			"sara": "",
+			"kj": ""
+		}
+	}
+]

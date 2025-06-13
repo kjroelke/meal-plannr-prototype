@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 import MealPreview from '../components/MealPreview.astro';
+import MealPlanOverview from '../components/MealPlanOverview.astro';
 ---
 
 <script>
@@ -14,22 +15,23 @@ import MealPreview from '../components/MealPreview.astro';
 </script>
 <BaseLayout>
 	<main class=''>
-		<section class='text-bg-secondary py-5'>
-			<div class='container'>
-				<h1 class='display-1'>
-					What's for <span id='current-meal'></span>?
-				</h1>
-				<div class='row'>
-					<div class='col-lg-4'>
-						<MealPreview
-							meal={{
-								name: 'Greek Turkey Burgers',
-								slug: 'greek-turkey-burger',
-							}}
-						/>
-					</div>
+		<section
+			class='container d-flex flex-column align-items-stretch row-gap-5'
+		>
+			<h1 class='display-1 text-capitalize mb-0'>
+				What's for <span id='current-meal'></span>?
+			</h1>
+			<div class='row'>
+				<div class='col-lg-4'>
+					<MealPreview
+						meal={{
+							name: 'Greek Turkey Burgers',
+							slug: 'greek-turkey-burger',
+						}}
+					/>
 				</div>
 			</div>
+			<MealPlanOverview />
 		</section>
 	</main>
 </BaseLayout>

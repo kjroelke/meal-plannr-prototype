@@ -12,13 +12,11 @@ const { meal } = Astro.props;
 ---
 
 <div class='card'>
-	<div class='card-img-top'>
-		<Image
-			src={placeholder}
-			alt='placeholder'
-			class={'img-fluid rounded-top'}
-		/>
-	</div>
+	<Image
+		src={placeholder}
+		alt='placeholder'
+		class={'card-img-top img-fluid rounded-top'}
+	/>
 	<div class='card-body'>
 		<h5 class='card-title'>{meal.name}</h5>
 		<p class='card-text'>Calories: 500 kcal</p>
