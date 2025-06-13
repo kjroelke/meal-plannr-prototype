@@ -20,34 +20,38 @@ if (meals < 0) {
 const { lunch, dinner } = mealPlan[meals] || { lunch: null, dinner: null };
 ---
 
-<div class='swiper-slide border-1 rounded-3 bg-secondary-subtle py-5 px-3'>
+<div
+	class='swiper-slide bg-white border border-3 rounded-3 border-secondary py-4 px-3 h-auto d-flex flex-column'
+>
 	<h3>{day}</h3>
-	<div class='lunch mb-4'>
-		<h4>Lunch</h4>
-		{
-			lunch?.kj === lunch?.sara ? (
-				(lunch?.kj ?? 'N/A')
-			) : (
-				<>
-					<strong>KJ:</strong> {lunch?.kj ?? 'N/A'}
-					<br />
-					<strong>Sara:</strong> {lunch?.sara ?? 'N/A'}
-				</>
-			)
-		}
-	</div>
-	<div class='dinner'>
-		<h4>Dinner</h4>
-		{
-			dinner?.kj === dinner?.sara ? (
-				(dinner?.kj ?? 'N/A')
-			) : (
-				<>
-					<strong>KJ:</strong> {dinner?.kj ?? 'N/A'}
-					<br />
-					<strong>Sara:</strong> {dinner?.sara ?? 'N/A'}
-				</>
-			)
-		}
+	<div class='details my-auto'>
+		<div class='lunch mb-4'>
+			<h4>Lunch</h4>
+			{
+				lunch?.kj === lunch?.sara ? (
+					<p class='mb-0'>{lunch?.kj || lunch?.sara}</p>
+				) : (
+					<p class='mb-0'>
+						<strong>KJ:</strong> {lunch?.kj ?? 'N/A'}
+						<br />
+						<strong>Sara:</strong> {lunch?.sara ?? 'N/A'}
+					</p>
+				)
+			}
+		</div>
+		<div class='dinner'>
+			<h4>Dinner</h4>
+			{
+				dinner?.kj === dinner?.sara ? (
+					<p class='mb-0'>{dinner?.kj || dinner?.sara}</p>
+				) : (
+					<p class='mb-0'>
+						<strong>KJ:</strong> {dinner?.kj ?? 'N/A'}
+						<br />
+						<strong>Sara:</strong> {dinner?.sara ?? 'N/A'}
+					</p>
+				)
+			}
+		</div>
 	</div>
 </div>

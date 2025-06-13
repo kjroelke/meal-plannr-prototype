@@ -1,0 +1,27 @@
+---
+import { BASE_URL } from '../../consts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const recipes = await getCollection('recipes');
+console.log(recipes);
+if (!recipes) {
+	throw new Error('Could not find any recipes');
+}
+---
+
+<BaseLayout title='Recipes'>
+	<div class='container'>
+		<h1 class='display-1'>Recipes</h1>
+		<ul>
+			{
+				recipes.map((post) => (
+					<li>
+						<a href={`${BASE_URL}/recipes/${post.id}`}>
+							{post.data.title}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</BaseLayout>

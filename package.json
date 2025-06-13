@@ -4,7 +4,7 @@
 	"version": "2.0.0",
 	"prettier": "@wordpress/prettier-config",
 	"scripts": {
-		"dev": "astro dev && astro preferences disable devToolbar",
+		"dev": "astro dev",
 		"start": "astro dev",
 		"build": "astro check && astro build",
 		"preview": "astro preview",
