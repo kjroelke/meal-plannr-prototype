@@ -1,5 +1,5 @@
 ---
-import MealOfTheDay from './MealOfTheDay.astro';
+import MealPlanSwiper from './MealPlanSwiper.astro';
 
 const days = [
 	'Sunday',
@@ -13,79 +13,10 @@ const days = [
 const today = days[new Date().getDay()];
 ---
 
-<script>
-	import 'bootstrap/js/dist/tab';
-	const todayIdx = new Date().getDay();
-	const navLinks = document.querySelectorAll('.nav-link');
-	navLinks.forEach((btn, idx) => {
-		if (idx === todayIdx) {
-			btn.classList.add('active');
-			btn.setAttribute('aria-selected', 'true');
-		} else {
-			btn.classList.remove('active');
-			btn.setAttribute('aria-selected', 'false');
-		}
-	});
-	const activeBtn = document.querySelector('.nav-link.active');
-	if (activeBtn && typeof activeBtn.scrollIntoView === 'function') {
-		activeBtn.scrollIntoView({
-			behavior: 'instant',
-			inline: 'center',
-			block: 'nearest',
-		});
-	}
-</script>
-<div id='meal-plan-overview'>
+<div
+	class='my-5'
+	id='meal-plan-overview'
+>
 	<h2 class='display-2'>This Week's Meals</h2>
-	<ol
-		class='nav nav-pills overflow-x-scroll flex-nowrap justify-content-lg-between column-gap-lg-4'
-		id='meal-plan-tabs'
-		role='tablist'
-	>
-		{
-			days.map((day) => (
-				<li
-					class='nav-item flex-grow-1'
-					role='presentation'
-				>
-					<button
-						class='nav-link w-100'
-						id={`tab-${day}`}
-						data-bs-toggle='tab'
-						data-bs-target={`#tab-pane-${day}`}
-						type='button'
-						role='tab'
-						aria-controls={`tab-pane-${day}`}
-						aria-selected='false'
-					>
-						{day}
-					</button>
-				</li>
-			))
-		}
-	</ol>
-	<div
-		class='tab-content'
-		id='meal-plan-tab-content'
-	>
-		{
-			days.map((day) => {
-				const classList =
-					day === today
-						? 'tab-pane fade show active'
-						: 'tab-pane fade';
-				return (
-					<div
-						class={classList}
-						id={`tab-pane-${day}`}
-						role='tabpanel'
-						aria-labelledby={`tab-${day}`}
-						tabindex='0'
-					>
-						<MealOfTheDay day={day} />
-					</div>
-				);
-			})
-		}
-	</div>
+	<MealPlanSwiper />
 </div>

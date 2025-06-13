@@ -1,0 +1,44 @@
+---
+import MealOfTheDayCard from './MealOfTheDayCard.astro';
+
+const days = [
+	'Sunday',
+	'Monday',
+	'Tuesday',
+	'Wednesday',
+	'Thursday',
+	'Friday',
+	'Saturday',
+] as const;
+const today = days[new Date().getDay()];
+---
+
+<script>
+	import Swiper from 'swiper';
+	import 'swiper/css/bundle';
+	import { A11y, EffectCards, Mousewheel } from 'swiper/modules';
+	new Swiper('#meal-plan-swiper', {
+		modules: [A11y, EffectCards, Mousewheel],
+		effect: 'cards',
+		grabCursor: true,
+		mousewheel: {
+			enabled: true,
+			forceToAxis: true,
+		},
+		a11y: {
+			enabled: true,
+			prevSlideMessage: 'Previous meal',
+			nextSlideMessage: 'Next meal',
+		},
+		loop: true,
+	});
+</script>
+<div
+	class='swiper my-5'
+	id='meal-plan-swiper'
+	style='max-width: 600px;'
+>
+	<div class='swiper-wrapper'>
+		{days.map((day) => <MealOfTheDayCard day={day} />)}
+	</div>
+</div>
